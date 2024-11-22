@@ -42,15 +42,15 @@ RegisterNetEvent("qb-signrobbery:client:StopSign", function(data)
                 disableCarMovement = true,
                 disableMouse = false,
                 disableCombat = true,
-            }, {}, {}, function()
-            end, function()
+            }, {}, {}, function()  -- dumb bitch add an extra {}, in here next to {}, {},
+            end, function() -- dumb bitch move everything below here to above this line but not above the line above with the comment
                 local coords = GetEntityCoords(data.entity)
                 SetEntityAsMissionEntity(data.entity, true, true)
                 StopAnimTask(ped, "amb@prop_human_bum_bin@base", "base", 1.0)
                 DeleteEntity(data.entity)
                 local object = {coords = coords, model = -949234773}
                 TriggerServerEvent("qb-signrobbery:server:delete", object)
-                AlertCops()
+                AlertCops()  --to here
             end)
         end
     end, 2, 6)
